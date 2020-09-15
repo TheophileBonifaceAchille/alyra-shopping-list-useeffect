@@ -3,7 +3,9 @@ import React, { useState, createContext, useEffect } from "react";
 export const ModeContext = createContext();
 
 const ModeContextProvider = ({ children }) => {
-  const [mode, setMode] = useState(localStorage.getItem("mode") || "ligth");
+  const [mode, setMode] = useState(
+    () => localStorage.getItem("mode") || "ligth"
+  );
 
   useEffect(() => {
     localStorage.setItem("mode", mode);
